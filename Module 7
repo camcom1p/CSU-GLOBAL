@@ -1,0 +1,56 @@
+cereals.df <- read.csv("Cereals.csv", header = TRUE)
+cereal.df <- cereals.df[-c(1,1:3)]
+head(cereal.df,9)
+summary(cereal.df)
+
+cereal.df
+mean(cereal.df$potass, na.rm=TRUE)
+mean(cereal.df$sugars, na.rm=TRUE)
+mean(cereal.df$carbo, na.rm=TRUE)
+
+sd(cereal.df$potass, na.rm=TRUE)
+sd(cereal.df$sugar, na.rm=TRUE)
+sd(cereal.df$carbo, na.rm=TRUE)
+
+min(cereal.df$potass, na.rm=TRUE)
+min(cereal.df$sugars, na.rm=TRUE)
+min(cereal.df$carbo, na.rm=TRUE)
+
+max(cereal.df$potass, na.rm=TRUE)
+max(cereal.df$sugars, na.rm=TRUE)
+max(cereal.df$carbo, na.rm=TRUE)
+
+median(cereal.df$potass, na.rm=TRUE)
+median(cereal.df$sugars, na.rm=TRUE)
+median(cereal.df$carbo, na.rm=TRUE)
+
+length(cereal.df$potass)
+length(cereal.df$sugars)
+length(cereal.df$carbo)
+
+sum(is.na(cereal.df$potass))
+sum(is.na(cereal.df$carbo))
+sum(is.na(cereal.df$sugars))
+
+data.frame(mean=sapply(cereal.df, mean, na.rm=TRUE), 
+             sd=sapply(cereal.df, sd, na.rm=TRUE), 
+             min=sapply(cereal.df, min, na.rm=TRUE), 
+             max=sapply(cereal.df, max, na.rm=TRUE),
+             length=sapply(cereal.df, length), 
+             median=sapply(cereal.df, median, na.rm=TRUE), 
+             miss.val=sapply(cereal.df, function(x)
+             sum(length(which(is.na(x))))))
+library(ggplot2)
+ggplot(cereal.df) + geom_histogram(aes(x=calories), binwidth =5)
+ggplot(cereal.df) + geom_histogram(aes(x=protein), binwidth =5)
+ggplot(cereal.df) + geom_histogram(aes(x=fat), binwidth =5)
+ggplot(cereal.df) + geom_histogram(aes(x=sodium), binwidth =5)
+ggplot(cereal.df) + geom_histogram(aes(x=fiber), binwidth =5)
+ggplot(cereal.df) + geom_histogram(aes(x=carbo), binwidth =5)
+ggplot(cereal.df) + geom_histogram(aes(x=sugars), binwidth =5)
+ggplot(cereal.df) + geom_histogram(aes(x=potass), binwidth =5)
+ggplot(cereal.df) + geom_histogram(aes(x=vitamins), binwidth =5)
+ggplot(cereal.df) + geom_histogram(aes(x=shelf), binwidth =5)
+ggplot(cereal.df) + geom_histogram(aes(x=weight), binwidth =5)
+ggplot(cereal.df) + geom_histogram(aes(x=cups), binwidth =5)
+ggplot(cereal.df) + geom_histogram(aes(x=rating), binwidth =5)
